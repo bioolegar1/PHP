@@ -1,12 +1,12 @@
     <?php
-function saudacao()
+function saudacao(): string
 {
     return "Bem-vindo ao sistema!";
 }
 
-function resumirTexto()
+function resumirTexto(string $texto, int $limite, string $continue = '...'): string
 {
-    return 'texto resumido';
+    return $texto;
 }
 
     ?>
