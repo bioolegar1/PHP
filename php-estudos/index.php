@@ -6,10 +6,9 @@ include_once 'sistema/helpers.php';
 
 $texto = "Texto para Resumir";
 
+echo "<hr>";
 
-
-
-echo saudacao();
-echo '<hr>';
-//echo resumirTexto($texto, 100, 'continue');
+//echo saudacao();
+//echo '<hr>';
+echo resumirTexto($texto, 15);
 ?>
