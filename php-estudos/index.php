@@ -1,14 +1,10 @@
 <?php
 //Arquivo index responsável pela incialização do sistema
-//declare(strict_types = 1);
 require_once 'sistema/configuracao.php';
 include_once 'sistema/helpers.php';
 
-$texto = "Texto para Resumir";
-
+$texto = "<h1>Texto</h1> <p>para </p> Resumir";
 echo "<hr>";
-
-//echo saudacao();
-//echo '<hr>';
-echo resumirTexto($texto, 15);
+echo resumirTexto($texto, 100);
+echo "<hr>"
 ?>
