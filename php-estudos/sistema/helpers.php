@@ -1,4 +1,14 @@
     <?php
+        function formatarValor(float $valor = null): string
+        {
+            return 'R$ '. number_format(($valor ? $valor : 0), 2, ',', '.');
+        }
+
+        function formatarNumero(string $numero = null): string
+        {
+            return number_format(($numero ? $numero : 0), 0, '.' . '.');
+        }
+
 function saudacao(): string
 {
     $hora = date('H'); //date recebe a data/hora atual
