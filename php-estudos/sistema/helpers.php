@@ -1,10 +1,64 @@
     <?php
-        function formatarValor(float $valor = null): string
+    /**
+     * @param string $data carrega a data informada pelo sistema
+     * @param return string|void
+     * @param $differenca string calcula a diferença da data inserida pelo sistema e a atual
+     * @param $agora converte o valor da data fornecida pelo sistema de agora atraves do srtotime em int
+     * @param $tempo data ate o tempod e agora convertido em int
+     * @param $contarTempo recebe o tempo informado no arquiv index.php
+     */
+        function contarTempo(string $data)
+        {
+            $agora = strtotime(date('Y-m-d H:i:s')); ;
+            $tempo = strtotime($data);
+            $diferenca = $agora - $tempo;
+
+            $segundos = $diferenca;
+            $minutos = round($diferenca / 60);
+            $horas = round($diferenca / 3600);
+            $dias = round($diferenca / 86400);
+            $semanas = round($diferenca / 604800);
+            $meses = round($diferenca / 2600640);
+            $anos = round($diferenca / 31207680);
+            $decadas = round($diferenca / 312076800);
+
+            if($segundos <= 60){
+                return 'agora';
+            }elseif ($minutos <= 60) {
+                return $minutos == 1 ? 'há 1 minuto' : 'há ' . $minutos . ' minutos';
+            }elseif ($horas <= 24) {
+                return $horas == 1 ? 'há 1 hora' : 'há ' . $horas . ' horas';
+            } elseif ($dias <= 7) {
+                return $dias == 1 ? 'ontem' : 'há ' . $dias . ' dias';
+            }elseif ($semanas <= 4) {
+                return $semanas == 1 ? 'há 1 semana' : 'há ' . $semanas . ' semanas';
+            }elseif ($meses <= 12) {
+                return $meses == 1 ? 'há 1 mês' : 'há ' . $meses . ' meses';
+            } elseif ($anos <= 10) {
+                return $anos == 1 ? 'há 1 ano' : 'há ' . $anos . ' anos';
+            }elseif ($decadas <= 100) {
+                return $decadas == 1 ? 'decada' : 'há ' . $decadas . ' decadas';
+            }
+        }
+
+
+    /**
+     * Formata um valor com ponto e virgula
+     * @param float $valor
+     * @return string
+     */
+
+
+    function formatarValor(float $valor = null): string
         {
             return 'R$ '. number_format(($valor ? $valor : 0), 2, ',', '.');
         }
 
-        function formatarNumero(string $numero = null): string
+    /**
+     * @param int $numero
+     * @return string
+     */
+        function formatarNumero(int $numero = null): string
         {
             return number_format(($numero ? $numero : 0), 0, '.' . '.');
         }
