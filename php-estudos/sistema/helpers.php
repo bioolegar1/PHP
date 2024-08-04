@@ -1,5 +1,28 @@
     <?php
     /**
+     * valida se é uma url mesmo
+     * @param string $url
+     * @return bool
+     */
+    function validarUrl(string $url) :bool
+    {
+        return filter_var($url, FILTER_VALIDATE_URL);
+    }
+
+    /**
+     * valida se o email é válido ou não.
+     * @param string $email
+     * @return bool
+     */
+    function validarEmail(string $email): bool
+    {
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
+
+
+    /**
+     * conta o tempo decorrido de uma data
      * @param string $data carrega a data informada pelo sistema
      * @param return string|void
      * @param $differenca string calcula a diferença da data inserida pelo sistema e a atual

@@ -5,26 +5,42 @@ include_once 'sistema/helpers.php';
 
 
 
+if(validarEmail('teste@gmail.com')) {
+    echo 'e-mail valido';
+}else {
+    echo 'e-mail inválido';
+}
+echo '<hr>';
 
-echo contarTempo("2001-03-27 20:45:00");
-
-
-
-
-
-
-
-
-
-
-
-
+if(validarUrl('teste@gmail.com')) {
+    echo 'URL válido';
+}else {
+    echo 'URL inválido';
+}
 
 
 
 
+//var_dump(validarUrl('http://teste.com'));
+
+//var_dump(validarEmail('bioolegari@gmail.com'));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//echo contarTempo("2001-03-27 20:45:00");
 
 //echo formatarValor();
 ////
