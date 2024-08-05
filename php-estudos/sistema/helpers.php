@@ -1,4 +1,11 @@
     <?php
+
+
+
+
+
+
+
     /**
      * valida uma url usando os padrões determinado nos filtros determinados
      * @param string $url

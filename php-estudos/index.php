@@ -4,29 +4,42 @@ require_once 'sistema/configuracao.php';
 include_once 'sistema/helpers.php';
 
 
-
-$url = 'http://unset.';
+echo SITE_NOME;
 echo '<hr>';
-
-var_dump(validarUrl($url));
-echo '<hr>';
-var_dump(validarUrlComFiltro($url));
+echo constant("SITE_NOME");
 
 
-echo '<hr>';
 
-if(validarEmail('teste@gmail.com')) {
-    echo 'e-mail valido';
-}else {
-    echo 'e-mail inválido';
-}
-echo '<hr>';
 
-if(validarUrlComFiltro('teste@gmail.com')) {
-    echo 'URL válido';
-}else {
-    echo 'URL inválido';
-}
+
+
+
+
+
+
+
+//$url = 'http://unset.';
+//echo '<hr>';
+//
+//var_dump(validarUrl($url));
+//echo '<hr>';
+//var_dump(validarUrlComFiltro($url));
+//
+//
+//echo '<hr>';
+//
+//if(validarEmail('teste@gmail.com')) {
+//    echo 'e-mail valido';
+//}else {
+//    echo 'e-mail inválido';
+//}
+//echo '<hr>';
+//
+//if(validarUrlComFiltro('teste@gmail.com')) {
+//    echo 'URL válido';
+//}else {
+//    echo 'URL inválido';
+//}
 
 
 
