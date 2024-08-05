@@ -1,10 +1,31 @@
     <?php
     /**
+     * valida uma url usando os padrões determinado nos filtros determinados
+     * @param string $url
+     * @return bool
+     */
+    function validarUrl(string $url): bool
+    {
+        if(mb_strlen($url) < 10){
+            return false;
+        }
+        if(!str_contains($url, '.')){
+            return false;
+        }
+        if (str_contains($url, 'http://')  or str_contains($url, 'https://')) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+    /**
      * valida se é uma url mesmo
      * @param string $url
      * @return bool
      */
-    function validarUrl(string $url) :bool
+    function validarUrlComFiltro(string $url) :bool
     {
         return filter_var($url, FILTER_VALIDATE_URL);
     }

@@ -5,6 +5,16 @@ include_once 'sistema/helpers.php';
 
 
 
+$url = 'http://unset.';
+echo '<hr>';
+
+var_dump(validarUrl($url));
+echo '<hr>';
+var_dump(validarUrlComFiltro($url));
+
+
+echo '<hr>';
+
 if(validarEmail('teste@gmail.com')) {
     echo 'e-mail valido';
 }else {
@@ -12,7 +22,7 @@ if(validarEmail('teste@gmail.com')) {
 }
 echo '<hr>';
 
-if(validarUrl('teste@gmail.com')) {
+if(validarUrlComFiltro('teste@gmail.com')) {
     echo 'URL válido';
 }else {
     echo 'URL inválido';
