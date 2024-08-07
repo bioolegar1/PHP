@@ -1,6 +1,31 @@
     <?php
+    /**
+     * @param string $url
+     * @return string
+     */
+    function url(string $url): string
+    {
+        $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+        $ambiente = ($servidor == 'localhost') ? 'URL_DESENVOLVIMENTO' : 'URL_PRODUCAO';
 
+        if(str_starts_with($url, '/')){
+            return $ambiente . $url;
+        }
 
+        return $ambiente . '/' .$url;
+    }
+
+    /**
+     * @return bool
+     */
+    function localhost(): bool
+    {
+        $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+        if ($servidor == "localhost") {
+            return true;
+        }
+        return false;
+    }
 
 
 
