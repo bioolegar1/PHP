@@ -1,5 +1,52 @@
     <?php
     /**
+     * Formata uma data usando Arrays
+     * @return string
+     */
+        function dataAtual() : string
+        {
+            $diaMes = date("d");
+            $diaSemana = date("w");
+            $mes = date("n")-1;
+            $ano = date("Y");
+
+            $nomesDiasDaSemana = [
+                'domingo',
+                'segunda-feira',
+                'terça-feira',
+                'quarta-feira',
+                'quinta-feira',
+                'sexta-feira',
+                'sábado'
+        ];
+            $nomesDosMeses = [
+            'janeiro',
+                'fevereiro',
+                'março',
+                'abril',
+                'maio',
+                'junho',
+                'julho',
+                'agosto',
+                'setembro',
+                'outubro',
+                'novembro',
+                'dezembro'
+        ];
+
+            $dataFormatada = $nomesDiasDaSemana [$diaSemana]. ', '. $diaMes. ' '. $nomesDosMeses[$mes]. ' de '. $ano;
+            return $dataFormatada;
+
+
+        }
+
+
+
+
+
+
+
+    /**
      * @param string $url
      * @return string
      */

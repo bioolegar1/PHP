@@ -5,6 +5,39 @@ include_once 'sistema/helpers.php';
 
 
 
+echo dataAtual();
+
+
+
+
+
+
+
+//$meses =  [
+//    'Janeiro',
+//    'Fevereiro',
+//    'Março'
+//];
+//
+//foreach ($meses as $chave => $valor) {
+//    echo $chave.'<br>';
+//}
+//echo '<hr>';
+//
+//
+//echo $meses[0];
+//echo '<hr>';
+//
+//
+//var_dump($meses);
+//
+//
+//echo '<hr>';
+//echo $_SERVER['SCRIPT_NAME'];
+//echo '<hr>';
+//var_dump($_SERVER);
+//echo '<hr>';
+
 
 
 
