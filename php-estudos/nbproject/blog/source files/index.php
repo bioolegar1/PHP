@@ -1,3 +1,5 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <?php
 //Arquivo index responsável pela incialização do sistema
 require_once "./sistema/configuracao.php";
@@ -5,10 +7,21 @@ include_once "./helpers.php";
 include_once "./sistema/Nucleo/Mensagem.php";
 
 
+echo (new Mensagem())->alert('Alerta Text');
 
 
 $msg = new Mensagem();
-echo $msg-> renderizar();
+echo $msg-> sucesso('Mensagem de Sucesso!')->renderizar();
+
+echo (new Mensagem())->error('Mensagem de erro')->renderizar();
+echo '<hr>';
+
+
+echo $msg-> error('Mensagem de Erro!')->renderizar();
+echo '<hr>';
+echo $msg-> alert('Mensagem de Alerta!')->renderizar();
+echo '<hr>';
+echo $msg-> info('Mensagem de Informações!')->renderizar();
 echo '<hr>';
 var_dump($msg);
 
