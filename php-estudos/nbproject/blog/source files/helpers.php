@@ -1,4 +1,171 @@
     <?php
+
+//    function valitadecpf3(string $cpf): bool
+//    {
+//        if (strlen($cpf) != 11 ||preg_match('/(\d)\1{10}/', $cpf)){
+//            return false;
+//        }
+//            return true;
+//    }
+
+
+    function validateCPF(string $cpf): bool
+    {
+        $cpf = limparNumero($cpf);
+
+        if (strlen($cpf) != 11 or preg_match('/(\d)\1{10}/', $cpf)) {
+            return false;
+        }
+        return true;
+    }
+
+    function limparNumero(string $numero): string
+    {
+        return preg_replace('/[^0-9]/', '', $numero);
+    }
+//    function validateCPF(string $cpf): bool
+//    {
+//        if (strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf)) {
+//            return false;
+//        }
+//
+//        return true; // Se passou nas verificações, o CPF é válido
+//    }
+
+
+    /**
+     * limpa um texto substituindo os caracteres especiais
+     * @param $string
+     * @return string
+     */
+    function slug($string) {
+        // Substitui os caracteres de nova linha e tabulação por espaço
+        $string = preg_replace('/[\t\n\r]/', ' ', $string);
+
+        // Substitui múltiplos espaços por um único espaço
+        $string = preg_replace('/\s{2,}/', ' ', $string);
+
+        // Lista de substituições de caracteres especiais
+        $list = array(
+            'Š' => 'S',
+            'š' => 's',
+            'Đ' => 'Dj',
+            'đ' => 'dj',
+            'Ž' => 'Z',
+            'ž' => 'z',
+            'Č' => 'C',
+            'č' => 'c',
+            'Ć' => 'C',
+            'ć' => 'c',
+            'À' => 'A',
+            'Á' => 'A',
+            'Â' => 'A',
+            'Ã' => 'A',
+            'Ä' => 'A',
+            'Å' => 'A',
+            'Æ' => 'A',
+            'Ç' => 'C',
+            'È' => 'E',
+            'É' => 'E',
+            'Ê' => 'E',
+            'Ë' => 'E',
+            'Ì' => 'I',
+            'Í' => 'I',
+            'Î' => 'I',
+            'Ï' => 'I',
+            'Ñ' => 'N',
+            'Ò' => 'O',
+            'Ó' => 'O',
+            'Ô' => 'O',
+            'Õ' => 'O',
+            'Ö' => 'O',
+            'Ø' => 'O',
+            'Ù' => 'U',
+            'Ú' => 'U',
+            'Û' => 'U',
+            'Ü' => 'U',
+            'Ý' => 'Y',
+            'Þ' => 'B',
+            'ß' => 'Ss',
+            'à' => 'a',
+            'á' => 'a',
+            'â' => 'a',
+            'ã' => 'a',
+            'ä' => 'a',
+            'å' => 'a',
+            'æ' => 'a',
+            'ç' => 'c',
+            'è' => 'e',
+            'é' => 'e',
+            'ê' => 'e',
+            'ë' => 'e',
+            'ì' => 'i',
+            'í' => 'i',
+            'î' => 'i',
+            'ï' => 'i',
+            'ð' => 'o',
+            'ñ' => 'n',
+            'ò' => 'o',
+            'ó' => 'o',
+            'ô' => 'o',
+            'õ' => 'o',
+            'ö' => 'o',
+            'ø' => 'o',
+            'ù' => 'u',
+            'ú' => 'u',
+            'û' => 'u',
+            'ý' => 'y',
+            'þ' => 'b',
+            'ÿ' => 'y',
+            '/' => '-',
+            ' ' => '-',
+            '.' => '-',
+            '!' => '-',
+            '$' => '-',
+            '%' => '-',
+            '&' => '-',
+            '@' => '-',
+            '#' => '-',
+            ':' => '-',
+            '"' => '',
+            "'" => '',
+            '(' => '',
+            ')' => '',
+            '[' => '',
+            ']' => '',
+            '{' => '',
+            '}' => '',
+            '\\' => '',
+            '+' => '-',
+            '=' => '-',
+            ';' => '-',
+            ',' => '-',
+            '?' => '-',
+            '^' => '-',
+            '~' => '-',
+            '`' => '-'
+        );
+
+        // Substitui caracteres especiais
+        $string = strtr($string, $list);
+
+        // Substitui múltiplos hífens por um único hífen
+        $string = preg_replace('/-{2,}/', '-', $string);
+
+        // Remove hífens no início e no final da string
+        $string = trim($string, ' ');
+
+        // Converte para minúsculas
+        $string = strtolower($string);
+
+        return $string;
+    }
+
+
+
+
+
+
     /**
      * Formata uma data usando Arrays
      * @return string
@@ -189,17 +356,40 @@
 function saudacao(): string
 {
     $hora = date('H'); //date recebe a data/hora atual
+//
+//    if($hora >= 0 && $hora <= 5){
+//        $saudacao = 'Boa Madrugada';
+//    }elseif ($hora >= 6 && $hora <= 12) {
+//        $saudacao = 'Bom Dia';
+//    }elseif ($hora >= 13 && $hora <= 18) {
+//        $saudacao = 'Boa Tarde';
+//    }
+//    else {
+//        $saudacao = 'Boa noite!';
+//    }
+//
+//    switch ($hora){
+//        case $hora >= 0 && $hora <= 5 :
+//            $saudacao = 'Boa Madrugada';
+//            break;
+//
+//        case $hora >= 6 && $hora <= 12:
+//            $saudacao = 'Bom Dia';
+//            break;
+//
+//        case $hora >= 13 && $hora <= 18 :
+//            $saudacao = 'Boa Tarde';
+//            break;
+//        default:
+//            $saudacao = 'Boa noite!';
+//    }
 
-    if($hora >= 0 && $hora <= 5){
-        $saudacao = 'Boa Madrugada';
-    }elseif ($hora >= 6 && $hora <= 12) {
-        $saudacao = 'Bom Dia';
-    }elseif ($hora >= 13 && $hora <= 18) {
-        $saudacao = 'Boa Tarde';
-    }
-    else {
-        $saudacao = 'Boa noite!';
-    }
+    $saudacao = match (true){
+        $hora >= 0 and $hora <= 5 => 'Boa Madrugada',
+        $hora >= 6 and $hora <= 12 => 'Bom Dia',
+        $hora >= 13 and $hora <= 18 => 'Boa tarde',
+        default =>'Boa noite'
+    };
 
 
     return "$saudacao";

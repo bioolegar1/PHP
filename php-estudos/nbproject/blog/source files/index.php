@@ -1,11 +1,78 @@
 <?php
 //Arquivo index responsável pela incialização do sistema
-require_once 'sistema/configuracao.php';
-include_once 'sistema/helpers.php';
+require_once "./sistema/configuracao.php";
+include_once "./helpers.php";
+include_once "./sistema/Nucleo/Mensagem.php";
 
 
 
-echo dataAtual();
+
+$msg = new Mensagem();
+echo $msg-> renderizar();
+echo '<hr>';
+var_dump($msg);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//$cpf = '12..... .3456...78910';
+//var_dump(validateCPF($cpf));
+
+
+
+
+
+
+/*
+$numero = 2;
+//while($numero <= 10){
+//    echo $numero ++;
+//}
+//var_dump($numero);
+
+for($i = 0; $i <= 10; $i++){
+//    echo ($i % 2 ? $i .' par' : $i . ' impar'). '<br>';
+    echo $i. ' x '. $numero. ' = ' . $i*$numero . '<br>';
+}
+
+*/
+
+
+//echo saudacao();
+
+
+
+
+//echo slug("aqui dentro '' ");
+//echo slug("Adão \" Negro \" - '2022' "). '<hr>';
+//echo slug("Avatar 2: O Caminho da Água"). '<hr>';
+//echo slug("Não! Não Olhe!"). '<hr>';
+//echo slug("Sonic 2 - O filme"). '<hr>';
+//echo slug("NOVA SÉRIE NO DISNEY +!"). '<hr>';
+//echo slug("100 Melhores Filmes"). '<hr>';
+//echo slug("!@#%#$%&%¨*&(@#$!!@#"). '<hr>';
+
+
+
+
+
+
+
+
+
+//
+//echo dataAtual();
 
 
 
